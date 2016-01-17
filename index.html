@@ -37,13 +37,9 @@
      window.location.href = "/transmission";
    }
 
-   function indexPlex() {
-     window.location.href = "/media/plex";
+   function index() {
+    window.location.href = "/media";
    }
-
-   function indexMopidy() {
-    window.location.href = "/media/music";
-  }
 
   function appAndroid() {
     window.location.href = "app-debug.apk";
@@ -57,9 +53,6 @@
     window.location.href = "/sonarr";
   }
 
-  function couchpotato() {
-    window.location.href = "/couchpotato";
-  }
 </script>
 </head>
 <body>
@@ -160,17 +153,12 @@
         <div class="btn-group" role="group">
           <button type="button" class="btn btn-lg btn-default" onclick="plexRemote();">Plex</button>
           <button type="button" class="btn btn-lg btn-default" onclick="sonarr();">Sonarr</button>
-          <button type="button" class="btn btn-lg btn-default" onclick="couchpotato();">Couchpotato</button>
+          <button type="button" class="btn btn-lg btn-default" onclick="transmission();"><span class="glyphion glyphicon-cloud-download" aria-hidden="true"/> Transmission</button>
         </div>
       </p>
       <p>
-        <button type="button" class="btn btn-lg btn-default" onclick="transmission();"><span class="glyphicon glyphicon-cloud-download" aria-hidden="true"/> Transmission</button>
-      </p>
-      <h3>Downloads</h3>
-      <p>
         <div class="btn-group" role="group">
-          <button type="button" class="btn btn-lg btn-default" onclick="indexPlex();">Films / Series</button>
-          <button type="button" class="btn btn-lg btn-default" onclick="indexMopidy();">Muziek</button>
+          <button type="button" class="btn btn-lg btn-default" onclick="index();">Bladeren</button>
         </div>
       </p>
       <h3>Apps</h3>
