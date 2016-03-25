@@ -7,9 +7,13 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="clippy.css" media="all">
+  <script src="clippy.min.js"></script>
   <script type="text/javascript">
 
     window.onload = send("/info");
+
+    var clippyAgent;
 
     function send(command) {
       var url = "api/" + command;
@@ -22,6 +26,11 @@
         $('#musicTitle').text(obj.music.song.title);
         $('#musicArtist').text(obj.music.song.artist);
         $('#quote').text(obj.quotes.quote);
+      });
+
+      clippy.load('Clippy', function(agent) {
+        clippyAgent = agent;
+        agent.show();
       });
     }
 
@@ -58,7 +67,7 @@
 <body>
 
   <div class="container">
-    <div class="jumbotron">
+    <div class="jumbotron" onclick="clippyAgent.animate();">
       <h1>
         Sjtek Dashboard
       </h1>
