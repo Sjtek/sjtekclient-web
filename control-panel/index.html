@@ -9,6 +9,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="clippy.css" media="all">
     <script src="clippy.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
 
         var clippyAgent;
@@ -18,8 +19,12 @@
                 clippyAgent = agent;
                 agent.show();
             });
-            send("/info");
+            send("info");
+//            getTemp();
         };
+
+        google.charts.load('current', {'packages': ['line']});
+        google.charts.setOnLoadCallback(drawChart);
 
         function send(command) {
             var url = "api/" + command;
@@ -34,6 +39,36 @@
                 $('#quote').text(obj.quotes.quote);
             });
             clippyAgent.animate();
+        }
+
+        var tempTableRows;
+
+        function getTemp() {
+            console.log("yolo");
+            $.get("api/temp-log", function (data) {
+                tempTableRows = JSON.parse(data);
+                console.log(tempTableRows[0]);
+            });
+        }
+
+        function drawChart() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Date');
+            data.addColumn('number', 'Binnen');
+            data.addColumn('number', 'Buiten');
+
+            data.addRows(tempTableRows);
+            data.addRows([["11:00", 25, 25], ["12:00", 26. 27]]);
+
+            var options = {
+                chart: {
+                    title: 'Temperature'
+                }
+            };
+
+            var chart = new google.charts.Line(document.getElementById('curve_chart'));
+
+            chart.draw(data, options);
         }
     </script>
 </head>
@@ -182,6 +217,8 @@
                         onclick="window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';">iOS
                 </button>
             </div>
+            <h3>Temperature</h3>
+            <div id="curve_chart" style="width: 100%;"></div>
             &nbsp;
         </div>
 
