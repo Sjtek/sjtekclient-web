@@ -20,14 +20,10 @@
                 agent.show();
             });
             send("info");
-//            getTemp();
         };
 
-        google.charts.load('current', {'packages': ['line']});
-        google.charts.setOnLoadCallback(drawChart);
-
         function send(command) {
-            var url = "api/" + command;
+            var url = "https://sjtek.nl/api/" + command;
             console.log(url);
             $.get(url, function (data) {
                 var obj = JSON.parse(data);
@@ -37,38 +33,17 @@
                 $('#musicTitle').text(obj.music.song.title);
                 $('#musicArtist').text(obj.music.song.artist);
                 $('#quote').text(obj.quotes.quote);
+                parseSonarr(obj)
             });
             clippyAgent.animate();
         }
 
-        var tempTableRows;
-
-        function getTemp() {
-            console.log("yolo");
-            $.get("api/temp-log", function (data) {
-                tempTableRows = JSON.parse(data);
-                console.log(tempTableRows[0]);
-            });
-        }
-
-        function drawChart() {
-            var data = new google.visualization.DataTable();
-            data.addColumn('string', 'Date');
-            data.addColumn('number', 'Binnen');
-            data.addColumn('number', 'Buiten');
-
-            data.addRows(tempTableRows);
-            data.addRows([["11:00", 25, 25], ["12:00", 26. 27]]);
-
-            var options = {
-                chart: {
-                    title: 'Temperature'
-                }
-            };
-
-            var chart = new google.charts.Line(document.getElementById('curve_chart'));
-
-            chart.draw(data, options);
+        function parseSonarr(data) {
+            var episode = data.sonarr.upcoming[0];
+            var text = episode.seriesTitle + " S" + episode.seasonInt + "E" + episode.episodeInt + "<br>";
+            text += episode.episodeName + "<br>";
+            text += episode.airDateUTC;
+            document.querySelector("#sonarr").innerHTML = text;
         }
     </script>
 </head>
@@ -217,8 +192,10 @@
                         onclick="window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';">iOS
                 </button>
             </div>
-            <h3>Temperature</h3>
-            <div id="curve_chart" style="width: 100%;"></div>
+            <h3>Sonarr</h3>
+            <div id="sonarr">
+
+            </div>
             &nbsp;
         </div>
 
