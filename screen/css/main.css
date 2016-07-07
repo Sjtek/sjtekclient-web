@@ -1,0 +1,30 @@
+body {
+    /*overflow: hidden;*/
+}
+
+.sjtek-header {
+    margin-bottom: 1em;
+}
+
+.sjtek-temp-icon {
+    padding-top: 7px;
+    max-height: 42px;
+    display: none;
+}
+
+.sjtek-temp-in, .sjtek-temp-out {
+    font-weight: 600;
+    font-size: 2em;
+}
+
+.sjtek-music-title, .sjtek-music-artist {
+    display: none;
+}
+
+.sjtek-alert-error, .sjtek-alert-nightmode {
+    display: none;
+}
+
+.sjtek-light-1, .sjtek-light-2 {
+    color: #aaa;
+}

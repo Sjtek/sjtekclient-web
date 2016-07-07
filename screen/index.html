@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css"
+          integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="">
+<nav class="navbar navbar-static-top navgar-dark navbar-main bg-inverse sjtek-header">
+    <span class="navbar-brand navbar-right">Sjtek Enterprises</span>
+</nav>
+
+<div class="container">
+    <div class="alert alert-info sjtek-alert-nightmode" role="alert">
+        Nachtmodus ingeschakeld
+    </div>
+    <div class="alert alert-danger sjtek-alert-error" role="alert">
+        <strong>Oeps </strong> Verbindingsfout
+    </div>
+
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-header">
+                    Muziek
+                </div>
+                <img class="card-img-top img-fluid sjtek-music-cover" src="img/empty.png"
+                     alt="Album cover">
+                <div class="card-block">
+                    <h4 class="card-title sjtek-music-artist">Taylor Swift</h4>
+                    <h5 class="card-text sjtek-music-title">Shake it off</h5>
+                    <footer class="sjtek-music-status">Muziek gestopt</footer>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8">
+
+            <div class="card">
+                <div class="card-header">Imgur</div>
+                <div class="card-block">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-header">
+                    Verlichting
+                </div>
+                <div class="card-block">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item sjtek-light-1">Woonkamer</li>
+                        <li class="list-group-item sjtek-light-2">Keuken</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    Weer
+                </div>
+                <div class="card-block">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div>Binnen</div>
+                            <div class="sjtek-temp-in"> °C</div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div>Buiten</div>
+                            <div class="sjtek-temp-out"> °C</div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div>&nbsp;</div>
+                            <img class="img-fluid sjtek-temp-icon"
+                                 src="img/empty.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-sm-8">
+            <div class="card">
+                <div class="card-header sjtek-news-header">
+                    Nieuws - Even geduld...
+                </div>
+                <div class="card-block">
+                    <ul class="list-group list-group-flush sjtek-news-list">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- jQuery first, then Bootstrap JS. -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"
+        integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7"
+        crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="https://storage.googleapis.com/feednami-static/js/feednami-client-v1.0.1.js"></script>
+<script src="js/imgur.js"></script>
+<script src="js/news.js"></script>
+<script src="js/sjtek.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/control-panel/control-panel.iml" filepath="$PROJECT_DIR$/control-panel/control-panel.iml" />
-      <module fileurl="file://$PROJECT_DIR$/dashboard/dashboard.iml" filepath="$PROJECT_DIR$/dashboard/dashboard.iml" />
-      <module fileurl="file://$PROJECT_DIR$/old/old.iml" filepath="$PROJECT_DIR$/old/old.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/sjtekclient-web.iml" filepath="$PROJECT_DIR$/.idea/sjtekclient-web.iml" />
     </modules>
   </component>
 </project>

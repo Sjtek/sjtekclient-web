@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="Sjtek">
+    <serverData>
+      <paths name="Sjtek">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/" local="$PROJECT_DIR$/dashboard" web="/" />
+            <mapping deploy="/old" local="$PROJECT_DIR$/dashboard-old" web="/old" />
+            <mapping deploy="/screen" local="$PROJECT_DIR$/screen" web="/screen" />
+            <mapping deploy="/screen2" local="$PROJECT_DIR$/screen2" web="/screen2" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>
