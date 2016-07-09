@@ -28,3 +28,7 @@ body {
 .sjtek-light-1, .sjtek-light-2 {
     color: #aaa;
 }
+
+.sjtek-image-img {
+    max-height: 26em;
+}
