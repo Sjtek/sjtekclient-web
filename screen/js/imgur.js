@@ -5,7 +5,7 @@ function rotateImage() {
 
     $.get(url, function (images) {
         counter++;
-        if (counter >= images) {
+        if (counter >= images.length) {
             counter = 0;
         }
         $('.sjtek-image-title').text(images[counter].title);
