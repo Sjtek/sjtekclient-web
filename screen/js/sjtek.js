@@ -1,3 +1,5 @@
+var webSocket;
+var webSocketUri = "wss://sjtek.nl/api/ws";
 var refreshing = false;
 var albumArt = '';
 var weatherIcon = '';
@@ -16,6 +18,46 @@ function refreshData() {
         updatePage(JSON.parse(data));
     })
 
+}
+
+function startWebSocket() {
+    webSocket = new WebSocket(webSocketUri);
+    webSocket.onopen = function (evt) {
+        onOpen(evt)
+    };
+    webSocket.onclose = function (evt) {
+        onClose(evt)
+    };
+    webSocket.onmessage = function (evt) {
+        onMessage(evt)
+    };
+    webSocket.onerror = function (evt) {
+        onError(evt);
+    };
+}
+
+function webSocketPing() {
+    webSocket.send("ping");
+}
+
+function onOpen(event) {
+    console.log("Web socket connected");
+    $('.sjtek-alert-error').css('display', 'none');
+}
+
+function onClose(event) {
+    console.log("Web socket closed");
+    $('.sjtek-alert-error').css('display', 'block');
+}
+
+function onMessage(event) {
+    updatePage(JSON.parse(event.data));
+    $('.sjtek-alert-error').css('display', 'none');
+}
+
+function onError(event) {
+    console.log("Web socket error: " + event);
+    $('.sjtek-alert-error').css('display', 'block');
 }
 
 function updatePage(data) {

@@ -1,8 +1,10 @@
 var intervalSjtek = 1000;
+var intervalPing = 30000;
 var intervalNews = 30000;
 var intervalImgurRotate = 10000;
 
 $(document).ready(function () {
+    startWebSocket();
     refreshData();
     rotateFeed();
     rotateImage();
@@ -15,5 +17,8 @@ $(document).ready(function () {
     }, intervalNews);
     setInterval(function () {
         rotateImage();
-    }, intervalImgurRotate)
+    }, intervalImgurRotate);
+    setInterval(function () {
+        webSocketPing();
+    }, intervalPing);
 });
