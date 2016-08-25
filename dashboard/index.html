@@ -4,53 +4,24 @@
     <title>Sjtek Dashboard</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Imports for bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="clippy.css" media="all">
-    <script src="clippy.min.js"></script>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
 
-        var clippyAgent;
-
-        window.onload = function () {
-            clippy.load('Clippy', function (agent) {
-                clippyAgent = agent;
-                agent.show();
-            });
-            send("info");
-        };
-
-        function send(command) {
-            var url = "https://sjtek.nl/api/" + command;
-            console.log(url);
-            $.get(url, function (data) {
-                var obj = JSON.parse(data);
-                $('#tempIn').text(obj.temperature.inside);
-                $('#tempOut').text(obj.temperature.outside);
-                $('#musicStatus').text(obj.music.state);
-                $('#musicTitle').text(obj.music.song.title);
-                $('#musicArtist').text(obj.music.song.artist);
-                $('#quote').text(obj.quotes.quote);
-                parseSonarr(obj)
-            });
-            clippyAgent.animate();
-        }
-
-        function parseSonarr(data) {
-            var episode = data.sonarr.upcoming[0];
-            var text = episode.seriesTitle + " S" + episode.seasonInt + "E" + episode.episodeInt + "<br>";
-            text += episode.episodeName + "<br>";
-            text += episode.airDateUTC;
-            document.querySelector("#sonarr").innerHTML = text;
-        }
-    </script>
+    <!-- Script for communication with Sjtek API -->
+    <script src="scripts/api-client.js"></script>
+    <style>
+      body {
+        display:  none;
+      }
+    </style>
 </head>
 
 <body>
 <div class="container">
-    <div class="jumbotron" onclick="clippyAgent.animate();">
+    <div class="jumbotron">
         <h1>
             Sjtek Dashboard
         </h1>
