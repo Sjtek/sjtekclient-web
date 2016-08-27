@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Sjtek Dashboard</title>
     <meta charset="utf-8">
@@ -15,157 +16,138 @@
 </head>
 
 <body>
-<div class="container">
-    <div class="jumbotron">
-        <h1>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>
             Sjtek Dashboard
         </h1>
-        <p>
-            &nbsp;<span id="quote"></span>
-        </p>
-    </div>
-    <div class="row">
-        <div class="col-sm-4">
-            <h3>Master switch</h3>
-            <div class="btn-group" role="group">
-                <button type="button" class="btn btn-lg btn-default" onclick="send('toggle?user=wouter\u0026voice')">
-                    Wouter
-                </button>
-                <button type="button" class="btn btn-lg btn-default" onclick="send('toggle?user=tijn\u0026voice')">
-                    Tijn
-                </button>
-                <button type="button" class="btn btn-lg btn-default" onclick="send('toggle?user=kevin\u0026voice')">
-                    Kevin
-                </button>
-            </div>
-            <h3>Lichten</h3>
-            <h4>Woonkamer</h4>
-            <div class="btn-group" role="group">
-                <button type="button" class="btn btn-lg btn-success" onclick="send('lights/toggle1on')">Aan</button>
-                <button type="button" class="btn btn-lg btn-danger" onclick="send('lights/toggle1off')">Uit</button>
-            </div>
-            <h4>Keuken</h4>
-            <div class="btn-group" role="group">
-                <button type="button" class="btn btn-lg btn-success" onclick="send('lights/toggle2on')">Aan</button>
-                <button type="button" class="btn btn-lg btn-danger" onclick="send('lights/toggle2off')">Uit</button>
-            </div>
-            &nbsp;
-            <h3>Temperatuur</h3>
-            <p>Binnen: <span id="tempIn">even geduld...</span> °C</p>
-            <p>Buiten: <span id="tempOut">even geduld...</span> °C</p>
-            &nbsp;
-        </div>
-
-        <div class="col-sm-4">
-            <h3>Muziek</h3>
             <p>
-                <span id="musicStatus"></span><br/>
-                <span id="musicTitle"></span><br/>
-                <span id="musicArtist"></span><br/>
+                &nbsp;<span id="quote"></span>
             </p>
-            <div class="btn-group" role="group">
-                <button type="button" class="btn btn-lg btn-success" onclick="send('music/play')"><span
-                        class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
-                <button type="button" class="btn btn-lg btn-danger" onclick="send('music/pause')"><span
-                        class="glyphicon glyphicon-pause" aria-hidden="true"></span></button>
-                <button type="button" class="btn btn-lg btn-primary" onclick="send('music/next')"><span
-                        class="glyphicon glyphicon-step-forward" aria-hidden="true"></span></button>
-            </div>
-            <div>&nbsp;</div>
-            <div class="btn-group " role="group" aria-label="...">
-
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <h3>Master switch</h3>
                 <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-lg btn-default dropdown-toggle" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                        Start
-                        <span class="caret"></span>
+                    <button type="button" class="btn btn-lg btn-default" onclick="send('toggle?user=wouter\u0026voice')">
+                        Wouter
                     </button>
-                    <ul class="dropdown-menu">
-                        <li><a href="#" onclick="send('music/start')">SjtekSjpeellijst</a></li>
-                        <li><a href="#" onclick="send('music/start?url=spotify:track:3QKv87XsylJWvTCzssDvnr')">Rave</a>
-                        </li>
-                        <li><a href="#" onclick="send('music/start?url=http://icecast.omroep.nl/3fm-bb-mp3')">3FM</a>
-                        </li>
-                        <li role="separator" class="divider"></li>
-                        <li class="dropdown-header">Tijn</li>
-                        <li><a href="#"
-                               onclick="send('music/start?url=spotify:user:1123840057:playlist:1kbSO9MqJMWOdsIfPhjcvW')">Swek
-                            muziek</a></li>
-                        <li><a href="#"
-                               onclick="send('music/start?url=spotify:user:1123840057:playlist:78nuAkhrGgF7rYbVBSj2t5')">Coding
-                            rave</a></li>
-                        <li><a href="#"
-                               onclick="send('music/start?url=spotify:user:1123840057:playlist:2AdY8mQLAbHOFYkQ7TMitk')">Diepe
-                            huis</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li class="dropdown-header">Wouter</li>
-                        <li><a href="#"
-                               onclick="send('music/start?url=spotify:user:1133212423:playlist:6GoCxjOJ5pXgr74Za0z9bt')">Dinges
-                            4</a></li>
-                        <li><a href="#"
-                               onclick="send('music/start?url=spotify:user:1133212423:playlist:6clH0v0FfHyjsEiHgULafH')">Dinges
-                            3</a></li>
-                        <li><a href="#"
-                               onclick="send('music/start?url=spotify:user:1133212423:playlist:75lLEqfsZ0lR1L8xz61TnB')">Dinges
-                            7</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li class="dropdown-header">Kevin</li>
-                        <li><a href="#"
-                               onclick="send('music/start?url=spotify:user:1130395265:playlist:5UOGVcoR34i1XUFLYCXbnz')">Sjpeellijst</a>
-                        </li>
-                    </ul>
+                    <button type="button" class="btn btn-lg btn-default" onclick="send('toggle?user=tijn\u0026voice')">
+                        Tijn
+                    </button>
+                    <button type="button" class="btn btn-lg btn-default" onclick="send('toggle?user=kevin\u0026voice')">
+                        Kevin
+                    </button>
                 </div>
-                <button type="button" class="btn btn-lg btn-default" onclick="send('music/shuffle')">Shuffle</button>
-                <button type="button" class="btn btn-lg btn-danger" onclick="send('music/clear')">Clear</button>
+                <h3>Lichten</h3>
+                <h4>Woonkamer</h4>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-lg btn-success" onclick="send('lights/toggle1on')">Aan</button>
+                    <button type="button" class="btn btn-lg btn-danger" onclick="send('lights/toggle1off')">Uit</button>
+                </div>
+                <h4>Keuken</h4>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-lg btn-success" onclick="send('lights/toggle2on')">Aan</button>
+                    <button type="button" class="btn btn-lg btn-danger" onclick="send('lights/toggle2off')">Uit</button>
+                </div>
+                &nbsp;
+                <h3>Temperatuur</h3>
+                <p>Binnen: <span id="tempIn">even geduld...</span> °C</p>
+                <p>Buiten: <span id="tempOut">even geduld...</span> °C</p>
+                &nbsp;
             </div>
-            <div>&nbsp;</div>
-            <div class="btn-group" role="group">
-                <button type="button" class="btn btn-lg btn-default"
-                        onclick="window.location.href = 'http://music.sjtek.nl/spotmop'">Spotmop
-                </button>
-                <button type="button" class="btn btn-lg btn-default"
-                        onclick="window.location.href = 'http://music.sjtek.nl/musicbox_webclient'">Musicbox
-                </button>
+
+            <div class="col-sm-4">
+                <h3>Muziek</h3>
+                <p>
+                    <span id="musicStatus"></span>
+                    <br/>
+                    <span id="musicTitle"></span>
+                    <br/>
+                    <span id="musicArtist"></span>
+                    <br/>
+                </p>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-lg btn-success" onclick="send('music/play')"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
+                    <button type="button" class="btn btn-lg btn-danger" onclick="send('music/pause')"><span class="glyphicon glyphicon-pause" aria-hidden="true"></span></button>
+                    <button type="button" class="btn btn-lg btn-primary" onclick="send('music/next')"><span class="glyphicon glyphicon-step-forward" aria-hidden="true"></span></button>
+                </div>
+                <div>&nbsp;</div>
+                <div class="btn-group " role="group" aria-label="...">
+
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-lg btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Start
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" onclick="send('music/start')">SjtekSjpeellijst</a></li>
+                            <li><a href="#" onclick="send('music/start?url=spotify:track:3QKv87XsylJWvTCzssDvnr')">Rave</a>
+                            </li>
+                            <li><a href="#" onclick="send('music/start?url=http://icecast.omroep.nl/3fm-bb-mp3')">3FM</a>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li class="dropdown-header">Tijn</li>
+                            <li><a href="#" onclick="send('music/start?url=spotify:user:1123840057:playlist:1kbSO9MqJMWOdsIfPhjcvW')">Swek
+                            muziek</a></li>
+                            <li><a href="#" onclick="send('music/start?url=spotify:user:1123840057:playlist:78nuAkhrGgF7rYbVBSj2t5')">Coding
+                            rave</a></li>
+                            <li><a href="#" onclick="send('music/start?url=spotify:user:1123840057:playlist:2AdY8mQLAbHOFYkQ7TMitk')">Diepe
+                            huis</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="dropdown-header">Wouter</li>
+                            <li><a href="#" onclick="send('music/start?url=spotify:user:1133212423:playlist:6GoCxjOJ5pXgr74Za0z9bt')">Dinges
+                            4</a></li>
+                            <li><a href="#" onclick="send('music/start?url=spotify:user:1133212423:playlist:6clH0v0FfHyjsEiHgULafH')">Dinges
+                            3</a></li>
+                            <li><a href="#" onclick="send('music/start?url=spotify:user:1133212423:playlist:75lLEqfsZ0lR1L8xz61TnB')">Dinges
+                            7</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="dropdown-header">Kevin</li>
+                            <li><a href="#" onclick="send('music/start?url=spotify:user:1130395265:playlist:5UOGVcoR34i1XUFLYCXbnz')">Sjpeellijst</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <button type="button" class="btn btn-lg btn-default" onclick="send('music/shuffle')">Shuffle</button>
+                    <button type="button" class="btn btn-lg btn-danger" onclick="send('music/clear')">Clear</button>
+                </div>
+                <div>&nbsp;</div>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-lg btn-default" onclick="window.location.href = 'http://music.sjtek.nl/spotmop'">Spotmop
+                    </button>
+                    <button type="button" class="btn btn-lg btn-default" onclick="window.location.href = 'http://music.sjtek.nl/musicbox_webclient'">Musicbox
+                    </button>
+                </div>
+                &nbsp;
             </div>
-            &nbsp;
+
+            <div class="col-sm-4">
+                <h3>Media server</h3>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-lg btn-default" onclick="window.location.href = 'https://plex.tv/web/app';">Plex
+                    </button>
+                    <button type="button" class="btn btn-lg btn-default" onclick="window.location.href = '/sonarr';">
+                        Sonarr
+                    </button>
+                    <button type="button" class="btn btn-lg btn-default" onclick="window.location.href = '/transmission';">
+                        Transmission
+                    </button>
+                </div>
+                <div>&nbsp;</div>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-lg btn-default" onclick="window.location.href = '/media'">
+                        Bladeren
+                    </button>
+                </div>
+
+                <div id="sonarr">
+                  <h3>Sonarr</h3>
+                </div>
+                &nbsp;
+            </div>
+
         </div>
-
-        <div class="col-sm-4">
-            <h3>Media server</h3>
-            <div class="btn-group" role="group">
-                <button type="button" class="btn btn-lg btn-default"
-                        onclick="window.location.href = 'https://plex.tv/web/app';">Plex
-                </button>
-                <button type="button" class="btn btn-lg btn-default" onclick="window.location.href = '/sonarr';">
-                    Sonarr
-                </button>
-                <button type="button" class="btn btn-lg btn-default" onclick="window.location.href = '/transmission';">
-                    Transmission
-                </button>
-            </div>
-            <div>&nbsp;</div>
-            <div class="btn-group" role="group">
-                <button type="button" class="btn btn-lg btn-default" onclick="window.location.href = '/media'">
-                    Bladeren
-                </button>
-            </div>
-            <h3>Apps</h3>
-            <div class="btn-group" role="group">
-                <button type="button" class="btn btn-lg btn-default" onclick="window.location.href = 'app-debug.apk';">
-                    Android
-                </button>
-                <button type="button" class="btn btn-lg btn-default"
-                        onclick="window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';">iOS
-                </button>
-            </div>
-            <h3>Sonarr</h3>
-            <div id="sonarr">
-
-            </div>
-            &nbsp;
-        </div>
-
     </div>
-</div>
 </body>
+
 </html>
