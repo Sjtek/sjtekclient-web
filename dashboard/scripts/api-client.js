@@ -3,31 +3,41 @@
 
 const baseUrl = 'https://sjtek.nl/api/';
 
-function send(command) {
-    let url = baseUrl + command;
+(function setInitialData(){
+  httpRequest("GET", "https://sjtek.nl/api", function(data) {
 
-    httpRequest("GET", url, function(data) {
-      console.warn(data.responseText);
-        // var obj = JSON.parse(data);
-        // $('#tempIn').text(obj.temperature.inside);
-        // $('#tempOut').text(obj.temperature.outside);
-        // $('#musicStatus').text(obj.music.state);
-        // $('#musicTitle').text(obj.music.song.title);
-        // $('#musicArtist').text(obj.music.song.artist);
-        // $('#quote').text(obj.quotes.quote);
-        // parseSonarr(obj);
-    });
+    data = JSON.parse(data.responseText);
+
+    document.querySelector('#tempIn').innerHTML = data.temperature.inside;
+    document.querySelector('#tempOut').innerHTML = data.temperature.outside;
+    document.querySelector('#musicStatus').innerHTML = data.music.state;
+    document.querySelector('#musicTitle').innerHTML = data.music.song.title;
+    document.querySelector('#musicArtist').innerHTML = data.music.song.artist.replace(/\;/g, ", ");
+    document.querySelector('#quote').innerHTML = data.quotes.quote;
+
+    if (data.sonarr.upcoming[0]) {
+      setSonarrData(data.sonarr.upcoming[0]);
+    } else {
+      document.querySelector("#sonarr").style.display = "none";
+    }
+  });
+})();
+
+function send(command) {
+  let url = baseUrl + command;
+
+  httpRequest("GET", url, function(){
+    console.log("Command send: ", url);
+  });
 }
 
-function parseSonarr(data) {
-    var episode = data.sonarr.upcoming[0];
+
+function parseSonarr(episode) {
     var text = episode.seriesTitle + " S" + episode.seasonInt + "E" + episode.episodeInt + "<br>";
     text += episode.episodeName + "<br>";
     text += episode.airDateUTC;
-    document.querySelector("#sonarr").innerHTML = text;
+    document.querydocument.querySelector("#sonarr").innerHTML = text;
 }
-
-
 
 /**
  * @function httpRequest - Wrapper for JS XMLHttpRequest
