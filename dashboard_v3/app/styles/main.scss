@@ -1,3 +1,15 @@
+//Import font
+@import 'https://fonts.googleapis.com/css?family=Oxygen';
+
+//Import CSS Reset
+@import "partials/cssreset";
+
+//Import partials
 @import "partials/header";
 @import "partials/body";
 @import "partials/controls";
+
+body {
+  font-family: 'Oxygen', sans-serif;
+  font-size: 16px;
+}
