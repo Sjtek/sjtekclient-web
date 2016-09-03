@@ -1,0 +1,16 @@
+{
+  "version": "1.0.0",
+  "name": "Sjtek Dashboard",
+  "launch_path": "/index.html",
+  "description": "Control dashboard for Sjtek",
+  "developer": {
+    "name": "Tijn Renders",
+    "url": "https://github.com/tijnrenders"
+  },
+  "installs_allowed_from": [
+    "*"
+  ],
+  "default_locale": "en",
+  "permissions": {
+  },
+}
