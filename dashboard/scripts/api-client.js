@@ -94,3 +94,8 @@ function httpRequest(type, url, callback) {
     request.open(type, url, true);
     request.send();
 }
+
+function speakText() {
+    send('api/speech?text=' + encodeURI(document.querySelector('#ttstext').text.value));
+    document.querySelector('#ttstext').text.value = '';
+}
