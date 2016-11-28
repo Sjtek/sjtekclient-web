@@ -25,8 +25,8 @@ body {
 
     margin: -5px -10px -10px -5px;
 
-            filter: brightness(-20%) blur(2px);
-    -webkit-filter: brightness(-20%) blur(2px);
+    /*filter: brightness(20%) blur(2px);*/
+    /*-webkit-filter: brightness(20%) blur(2px);*/
 
     z-index: 999;
 }

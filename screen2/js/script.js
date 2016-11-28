@@ -1,8 +1,7 @@
 var storedAlbum = "";
-var refreshing = false;
-var countdownEnabled = false;
+var countdownEnabled = true;
 
-$(document).ready(function() {
+$(document).ready(function () {
     $(".images").hide();
     if (!countdownEnabled) {
         $('#fissaTitle').hide();
@@ -12,49 +11,19 @@ $(document).ready(function() {
     } else {
         $('.tempbox').css('margin-top', '55%');
     }
-    setInterval(function() {
-        refresh();
-    }, 1000);
+    setInterval(function () {
+        if (countdownEnabled) showRemaining();
+    }, 500);
+    refresh();
+    startWebSocket();
 });
 
 function refresh() {
     if (countdownEnabled) showRemaining();
-    if (refreshing) {
-        console.log("Still loading");
-        return;
-    }
-
-    refreshing = true;
-    $.get("https://sjtek.nl/api/info", function(data) {
-        var obj = JSON.parse(data);
-        var artist = obj.music.song.artist;
-        var title = obj.music.song.title;
-        var album = obj.music.song.album;
-
-        if (!(storedAlbum === album)) {
-            var albumArt = obj.music.song.albumArt;
-            var artistArt = obj.music.song.artistArt;
-            // albumArt = "";
-            if (!isEmpty(albumArt)) {
-                console.log("Load album " + albumArt);
-                $(".musicArt").css("background-image", "url(" + albumArt + ")");
-            } else {
-                console.log("Load artist " + artistArt);
-                $(".musicArt").css("background-image", "url(" + artistArt + ")");
-            }
-            $(".artistBackground").css("background-image", "url(" + artistArt + ")");
-            // updateColor();
-        }
-
-        storedAlbum = album;
-
-        $(".infoTitle").text(title);
-        $(".infoArtist").text(artist);
-
-        $(".tempInsideText").text(obj.temperature.inside);
-        $(".tempOutsideText").text(obj.temperature.outside);
-        refreshing = false;
+    $.get("https://sjtek.nl/api/info", function (data) {
+        updateScreen(data);
     });
+
 }
 
 function isEmpty(str) {
@@ -63,6 +32,53 @@ function isEmpty(str) {
 
 function toggleClock() {
     $(".clock").toggle();
+}
+
+function startWebSocket() {
+    webSocket = new WebSocket("ws://ws.sjtek.nl");
+    webSocket.onopen = function (evt) {
+    };
+    webSocket.onclose = function (evt) {
+    };
+    webSocket.onmessage = function (evt) {
+        console.log("message");
+        updateScreen(evt.data);
+    };
+    webSocket.onerror = function (evt) {
+    };
+}
+
+function updateScreen(data) {
+    var obj = JSON.parse(data);
+    var artist = obj.music.song.artist;
+    var title = obj.music.song.title;
+    var album = obj.music.song.album;
+
+
+    if (!(storedAlbum === album)) {
+        var albumArt = obj.music.song.albumArt;
+        var artistArt = obj.music.song.artistArt;
+        // albumArt = "";
+        if (!isEmpty(albumArt)) {
+            console.log("Load album " + albumArt);
+            $(".musicArt").css("background-image", "url(" + albumArt + ")");
+        } else {
+            console.log("Load artist " + artistArt);
+            $(".musicArt").css("background-image", "url(" + artistArt + ")");
+        }
+        $(".artistBackground").css("background-image", "url(" + artistArt + ")");
+        // updateColor();
+    }
+
+    storedAlbum = album;
+
+    $(".infoTitle").text(title);
+    $(".infoArtist").text(artist);
+
+    $(".tempInsideText").text(obj.temperature.inside);
+    $(".tempOutsideText").text(obj.temperature.outside);
+
+    $('#fissaTitle').text(obj.screen.title);
 }
 
 var newYearDate = new Date("01/01/2017 0:0 AM");
@@ -105,10 +121,3 @@ function showRemaining() {
     }
 
 }
-// function updateColor(){
-//   var sourceImage = document.getElementsByClassName("artistBackground");
-//   var colorThief = new ColorThief();
-//   var color = colorThief.getColor(sourceImage);
-//   console.log(color);
-//   document.getElementsByClassName("boxRight").style.backgroundColor = "rgb(" + color + ")";
-// }
