@@ -98,6 +98,6 @@ function updatePage(data) {
 
     $('.sjtek-alert-nightmode').css('display', (data.nightmode.enabled ? 'block' : 'none'));
 
-    $('.sjtek-light-1').css('color', (data.lights["1"] ? '#000' : '#aaa'));
-    $('.sjtek-light-2').css('color', (data.lights["2"] ? '#000' : '#aaa'));
+    // $('.sjtek-light-1').css('color', (data.lights["1"] ? '#000' : '#aaa'));
+    // $('.sjtek-light-2').css('color', (data.lights["2"] ? '#000' : '#aaa'));
 }
