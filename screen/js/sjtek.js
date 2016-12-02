@@ -21,7 +21,7 @@ function refreshData() {
 }
 
 function startWebSocket() {
-    webSocket = new WebSocket(webSocketUri);
+    webSocket = new ReconnectingWebSocket(webSocketUri);
     webSocket.onopen = function (evt) {
         onOpen(evt)
     };

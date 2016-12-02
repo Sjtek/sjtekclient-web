@@ -35,7 +35,7 @@ function toggleClock() {
 }
 
 function startWebSocket() {
-    webSocket = new WebSocket("ws://ws.sjtek.nl");
+    webSocket = new ReconnectingWebSocket("ws://ws.sjtek.nl");
     webSocket.onopen = function (evt) {
     };
     webSocket.onclose = function (evt) {
