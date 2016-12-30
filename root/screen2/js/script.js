@@ -51,6 +51,8 @@ function startWebSocket() {
     };
 }
 
+var previousScreenState = '';
+
 function updateScreen(data) {
     var obj = JSON.parse(data);
     var artist = obj.music.song.artist;
@@ -73,7 +75,9 @@ function updateScreen(data) {
         // updateColor();
     }
 
-    if (obj.screen.state == "TV") {
+    var newState = obj.screen.state;
+
+    if (obj.screen.state == 'tv' && previousScreenState != newState) {
         $('.radio').show();
         // $('.radio').attr('src', 'http://radioplayer.npo.nl/radio2/?video=1');
         $('.radio').attr('src', 'http://api.tijn.io/radio-2-live/');
@@ -82,6 +86,8 @@ function updateScreen(data) {
         $('.radio').hide();
         $('.radio').attr('src', 'about:blank');
     }
+
+    previousScreenState = newState;
 
     storedAlbum = album;
 
