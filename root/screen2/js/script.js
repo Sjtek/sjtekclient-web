@@ -20,7 +20,7 @@ $(document).ready(function () {
 
 function refresh() {
     if (countdownEnabled) showRemaining();
-    $.get("http://localhost:8000/api/info", function (data) {
+    $.get("http://sjtek.nl/api/info", function (data) {
         updateScreen(data);
     });
 
@@ -35,7 +35,7 @@ function toggleClock() {
 }
 
 function startWebSocket() {
-    webSocket = new ReconnectingWebSocket("ws://localhost:8001");
+    webSocket = new ReconnectingWebSocket("ws://ws.sjtek.nl");
     webSocket.onopen = function (evt) {
         console.log("websocket connected")
     };
