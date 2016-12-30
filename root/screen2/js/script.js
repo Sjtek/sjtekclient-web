@@ -20,7 +20,7 @@ $(document).ready(function () {
 
 function refresh() {
     if (countdownEnabled) showRemaining();
-    $.get("http://sjtek.nl/api/info", function (data) {
+    $.get("https://sjtek.nl/api/info", function (data) {
         updateScreen(data);
     });
 
@@ -77,11 +77,12 @@ function updateScreen(data) {
 
     var newState = obj.screen.state;
 
-    if (obj.screen.state == 'tv' && previousScreenState != newState) {
-        $('.radio').show();
-        // $('.radio').attr('src', 'http://radioplayer.npo.nl/radio2/?video=1');
-        $('.radio').attr('src', 'http://api.tijn.io/radio-2-live/');
-
+    if (newState == 'TV') {
+        if (previousScreenState != newState) {
+            $('.radio').show();
+            // $('.radio').attr('src', 'http://radioplayer.npo.nl/radio2/?video=1');
+            $('.radio').attr('src', 'http://api.tijn.io/radio-2-live/');
+        }
     } else {
         $('.radio').hide();
         $('.radio').attr('src', 'about:blank');
