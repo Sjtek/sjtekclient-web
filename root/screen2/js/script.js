@@ -100,7 +100,7 @@ function updateScreen(data) {
     $('#fissaTitle').text(obj.screen.title);
 }
 
-var newYearDate = new Date("01/01/2017 0:0 AM");
+var newYearDate = new Date("31/12/2016 0:0 AM");
 var _second = 1000;
 var _minute = _second * 60;
 var _hour = _minute * 60;
@@ -136,7 +136,7 @@ function showRemaining() {
         $(".clock").text(clockText);
     } else {
         $(".clock").text("" + seconds);
-        $(".clock").css("font-size", "5em");
+        $(".clock").css("font-size", "6em");
     }
 
 }
