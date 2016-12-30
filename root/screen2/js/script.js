@@ -101,7 +101,7 @@ function updateScreen(data) {
     $('#fissaTitle').text(obj.screen.title);
 }
 
-var newYearDate = new Date("12/31/2016 0:22 AM");
+var newYearDate = new Date("12/31/2016 0:52 AM");
 var _second = 1000;
 var _minute = _second * 60;
 var _hour = _minute * 60;
@@ -110,12 +110,14 @@ var _day = _hour * 24;
 function showRemaining() {
     var now = new Date();
     var distance = newYearDate - now;
-    if (distance < 0) {
-        fuck2016();
+    if (distance < -120000) {
+         hail2017();
         return;
-    } else if (distance < -120000){
-        hail2017()
+    } else if (distance < 0){
+       fuck2016();
+       return
     }
+
     var days = Math.floor(distance / _day);
     var hours = Math.floor((distance % _day) / _hour);
     var minutes = Math.floor((distance % _hour) / _minute);
@@ -136,7 +138,7 @@ function showRemaining() {
         $(".clock").text(clockText);
     } else {
         $(".clock").text("" + seconds);
-        $(".clock").css("font-size", "6em");
+        $(".clock").css("font-size", "8em");
     }
 
 }
@@ -151,4 +153,6 @@ function hail2017(){
     $('.fuck2016').hide();
     $('.boxLeft').show();
     $('.boxRight').show();
+    $('.clock').hide();
+    $('.clockLabel').text('Gelukkig nieuwjaar!');
 }
