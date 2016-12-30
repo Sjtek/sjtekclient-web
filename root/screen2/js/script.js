@@ -20,7 +20,7 @@ $(document).ready(function () {
 
 function refresh() {
     if (countdownEnabled) showRemaining();
-    $.get("https://sjtek.nl/api/info", function (data) {
+    $.get("http://localhost:8000/api/info", function (data) {
         updateScreen(data);
     });
 
@@ -35,16 +35,19 @@ function toggleClock() {
 }
 
 function startWebSocket() {
-    webSocket = new ReconnectingWebSocket("ws://ws.sjtek.nl");
+    webSocket = new ReconnectingWebSocket("ws://localhost:8001");
     webSocket.onopen = function (evt) {
+        console.log("websocket connected")
     };
     webSocket.onclose = function (evt) {
+        console.log("websocket closed")
     };
     webSocket.onmessage = function (evt) {
         console.log("message");
         updateScreen(evt.data);
     };
     webSocket.onerror = function (evt) {
+        console.log("websocket error")
     };
 }
 
@@ -68,6 +71,16 @@ function updateScreen(data) {
         }
         $(".artistBackground").css("background-image", "url(" + artistArt + ")");
         // updateColor();
+    }
+
+    if (obj.screen.state == "TV") {
+        $('.radio').show();
+        // $('.radio').attr('src', 'http://radioplayer.npo.nl/radio2/?video=1');
+        $('.radio').attr('src', 'http://api.tijn.io/radio-2-live/');
+
+    } else {
+        $('.radio').hide();
+        $('.radio').attr('src', 'about:blank');
     }
 
     storedAlbum = album;
