@@ -95,13 +95,13 @@ function updateScreen(data) {
     $(".infoTitle").text(title);
     $(".infoArtist").text(artist);
 
-    $(".tempInsideText").text(obj.temperature.inside);
-    $(".tempOutsideText").text(obj.temperature.outside);
+    // $(".tempInsideText").text(obj.temperature.inside);
+    // $(".tempOutsideText").text(obj.temperature.outside);
 
     $('#fissaTitle').text(obj.screen.title);
 }
 
-var newYearDate = new Date("31/12/2016 0:0 AM");
+var newYearDate = new Date("12/31/2016 1:0 AM");
 var _second = 1000;
 var _minute = _second * 60;
 var _hour = _minute * 60;
@@ -114,7 +114,7 @@ function showRemaining() {
         $(".stuff").hide();
         $(".clock").hide();
         $(".clockLabel").hide();
-        $(".images").show(1000);
+        fuck2016();
         return;
     }
     var days = Math.floor(distance / _day);
@@ -140,4 +140,10 @@ function showRemaining() {
         $(".clock").css("font-size", "6em");
     }
 
+}
+
+function fuck2016(){
+    $('.boxLeft').hide();
+    $('.boxRight').hide();
+    $('.fuck2016').show();
 }

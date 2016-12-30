@@ -4,6 +4,7 @@
 body {
     margin: 0;
     font-family: 'Lato', sans-serif;
+    overflow: hidden;
 }
 
 .boxLeft {
@@ -29,7 +30,7 @@ body {
     position: absolute;
     overflow: hidden;
     border: 0;
-    background-color: rgba(255, 0, 14, 0.51);
+    background-color: #000;
 }
 
 .artistBackground {
@@ -160,4 +161,12 @@ h1, h2 {
 
 #presentsTitle {
     font-size: 1em;
+}
+
+.fuck2016 {
+    display: none;
+    z-index: 100000;
+    clear: both;
+    width: 1920px;
+    height: 1080px;
 }
