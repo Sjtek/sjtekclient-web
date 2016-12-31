@@ -101,6 +101,7 @@ function updateScreen(data) {
     $('#fissaTitle').text(obj.screen.title);
 }
 
+var newYearDate = new Date("12/31/2016 1:03 AM");
 var _second = 1000;
 var _minute = _second * 60;
 var _hour = _minute * 60;
