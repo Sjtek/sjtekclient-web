@@ -101,7 +101,6 @@ function updateScreen(data) {
     $('#fissaTitle').text(obj.screen.title);
 }
 
-var newYearDate = new Date("12/31/2016 0:52 AM");
 var _second = 1000;
 var _minute = _second * 60;
 var _hour = _minute * 60;
@@ -138,7 +137,7 @@ function showRemaining() {
         $(".clock").text(clockText);
     } else {
         $(".clock").text("" + seconds);
-        $(".clock").css("font-size", "8em");
+        $(".clock").css("font-size", "10em");
     }
 
 }
@@ -155,4 +154,5 @@ function hail2017(){
     $('.boxRight').show();
     $('.clock').hide();
     $('.clockLabel').text('Gelukkig nieuwjaar!');
+    $(".clockLabel").css("font-size", "8em");
 }
