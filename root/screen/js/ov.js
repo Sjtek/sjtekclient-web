@@ -4,5 +4,9 @@ function showOV() {
     $('.sjtek-image-img').hide();
     $('.sjtek-ov').show();
     $('.sjtek-image-title').text('Eekhoornlaan');
+    $('.sjtek-ov').attr('src', ovUrl);
+}
 
+function hideOV() {
+    $('.sjtek-ov').attr('src', 'about:blank');
 }

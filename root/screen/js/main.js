@@ -7,6 +7,7 @@ function checkOV() {
     if (hour == 7 || hour == 8 || hour == 9) {
         showOV();
     } else {
+        hideOV();
         rotateImage();
     }
 }
