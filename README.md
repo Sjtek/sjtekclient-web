@@ -11,3 +11,11 @@ The website for Sjtek. Found at https://sjtek.nl
   Contains the event screen. Displaying the current album art and a new years countdown.
 * **/root/old**
   Contains the first version of the dashboard.
+
+## Screenshots
+
+![Dashboard](./images/root.jpg)
+
+![Screen](./images/screen)
+
+![Screen 2](./images/screen2)
