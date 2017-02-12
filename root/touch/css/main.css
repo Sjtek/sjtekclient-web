@@ -1,0 +1,19 @@
+html, body {
+    min-height: 100%;
+    height: 100%;
+}
+
+#web {
+    border: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.card {
+    margin-bottom: 1em;
+}
+
+.navbar {
+    margin-bottom: 1em;
+}
