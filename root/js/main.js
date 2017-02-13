@@ -13,6 +13,11 @@ $(document).ready(function () {
 
     useIframe = ~window.location.search.indexOf('iframe');
 
+    if (useIframe) {
+        $('body').css('overflow', 'hidden');
+        $('#web').css('overflow', 'hidden');
+    }
+
     enableHome();
     refreshData();
     startWebSocket();
