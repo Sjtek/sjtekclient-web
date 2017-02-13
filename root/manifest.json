@@ -4,6 +4,7 @@
   "background_color": "#183E6A",
   "display": "standalone",
   "theme_color": "#292b2c",
+  "start_url": "/?launcher",
   "icons": [
     {
       "src": "icon/icon-hires.png",
