@@ -17,3 +17,19 @@ html, body {
 .navbar {
     margin-bottom: 1em;
 }
+
+.music-controls {
+    margin-top: 1.5em;
+}
+
+.music-controls-small {
+    margin-top: 0.8em;
+}
+
+.artist-small {
+    font-size: 1.2em;
+}
+
+.title-small {
+    font-size: 1em;
+}

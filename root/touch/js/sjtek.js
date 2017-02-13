@@ -3,21 +3,12 @@ var webSocketUri = "wss://sjtek.nl/api/ws";
 var refreshing = false;
 var albumArt = '';
 var weatherIcon = '';
+var musicState = 'STATUS_ERROR';
 
 function refreshData() {
-    if (refreshing) {
-        $('.sjtek-alert-error').css('display', 'block');
-        return;
-    } else {
-        $('.sjtek-alert-error').css('display', 'none');
-    }
-
-    refreshing = true;
     $.get('https://sjtek.nl/api/info', function (data) {
-        refreshing = false;
         updatePage(JSON.parse(data));
     })
-
 }
 
 function startWebSocket() {
@@ -60,10 +51,11 @@ function onError(event) {
     $('.sjtek-alert-error').css('display', 'block');
 }
 
+
 function updatePage(data) {
     var state = data.music.state;
     var newAlbum = data.music.song.albumArt;
-
+    musicState = state;
     if (state == 'STATUS_PAUSED' || state == 'STATUS_PLAYING') {
         $('.sjtek-music-title').css('display', 'block')
             .text(data.music.song.title);
@@ -85,6 +77,14 @@ function updatePage(data) {
         $('.sjtek-music-status').css('display', 'block');
     }
 
+    if (state == 'STATUS_PLAYING') {
+        $('.icon-play').hide();
+        $('.icon-pause').show();
+    } else {
+        $('.icon-pause').hide();
+        $('.icon-play').show();
+    }
+
     $('.sjtek-temp-in').text(data.temperature.inside + ' °C');
     $('.sjtek-temp-out').text(data.temperature.outside + ' °C');
 
@@ -92,4 +92,22 @@ function updatePage(data) {
 
     // $('.sjtek-light-1').css('color', (data.lights["1"] ? '#000' : '#aaa'));
     // $('.sjtek-light-2').css('color', (data.lights["2"] ? '#000' : '#aaa'));
+}
+
+function onMusicButtonClick(action) {
+    if (action === 'albumart') {
+        if (musicState == 'STATUS_PAUSED' || musicState == 'STATUS_PLAYING') {
+            action = 'toggle';
+        } else {
+            action = 'start';
+        }
+    }
+
+    $.get('https://sjtek.nl/api/music/' + action, function (data) {
+    })
+}
+
+function onLightButtonClick(id) {
+    $.get('https://sjtek.nl/api/lights/toggle' + id, function (data) {
+    })
 }

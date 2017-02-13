@@ -9,9 +9,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
           integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
 </head>
 <body>
-<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+<nav id="sjtekbar" class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -36,9 +37,6 @@
             </li>
         </ul>
     </div>
-    <span class="navbar-text">
-        13:37
-    </span>
 </nav>
 
 <iframe id="web" src="about:blank"></iframe>
@@ -52,25 +50,119 @@
                 </div>
                 <div class="card-block">
                     <div class="row">
-                        <div class="col-sm-6">
-                            <button type="button" class="btn btn-primary btn-block">Woonkamer</button>
+                        <div class="col">
+                            <button type="button" class="btn btn-outline-primary btn-block"
+                                    onclick="onLightButtonClick(1)">Woonkamer
+                            </button>
                         </div>
-                        <div class="col-sm-6">
-                            <button type="button" class="btn btn-primary btn-block">Keuken</button>
+                        <div class="col">
+                            <button type="button" class="btn btn-outline-primary btn-block"
+                                    onclick="onLightButtonClick(2)">Keuken
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="card">
+            <div class="card music-small">
+                <div class="card-header">
+                    Muziek
+                </div>
+                <div class="card-block">
+                    <div class="row">
+                        <div class="col-5">
+                            <img class="img-fluid sjtek-music-cover" src="img/empty.png" alt="Album cover"
+                                 onclick="onMusicButtonClick('albumart')">
+                        </div>
+                        <div class="col-7 music">
+                            <h4 class="sjtek-music-artist artist-small">Taylor Swift</h4>
+                            <h5 class="sjtek-music-title title-small">Shake it off</h5>
+                            <div class="btn-group music-controls-small" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-outline-secondary"
+                                        onclick="onMusicButtonClick('previous')">
+                                    <i class="fa fa-step-backward" aria-hidden="true"></i>
+                                </button>
+                                <button type="button" class="btn btn-outline-secondary"
+                                        onclick="onMusicButtonClick('toggle')">
+                                    <i class="fa fa-play icon-play" aria-hidden="true"></i>
+                                    <i class="fa fa-pause icon-pause" aria-hidden="true"></i>
+                                </button>
+                                <button type="button" class="btn btn-outline-secondary"
+                                        onclick="onMusicButtonClick('next')">
+                                    <i class="fa fa-step-forward" aria-hidden="true"></i>
+                                </button>
+                                <!--<div class="btn-group dropup" role="group">-->
+                                <!--<button type="button" class="btn btn-secondary dropdown-toggle"-->
+                                <!--data-toggle="dropdown"-->
+                                <!--aria-haspopup="true" aria-expanded="false">-->
+                                <!--</button>-->
+                                <!--<div class="dropdown-menu dropdown-menu-right">-->
+                                <!--<a class="dropdown-item" href="#" onclick="onMusicButtonClick('start')">-->
+                                <!--<i class="fa fa-play fa-fw" aria-hidden="true"></i>&nbsp; Start music-->
+                                <!--</a>-->
+                                <!--<a class="dropdown-item" href="#" onclick="onMusicButtonClick('shuffle')">-->
+                                <!--<i class="fa fa-random fa-fw" aria-hidden="true"></i>&nbsp; Shuffle-->
+                                <!--</a>-->
+                                <!--<div class="dropdown-divider"></div>-->
+                                <!--<a class="dropdown-item" href="#" onclick="onMusicButtonClick('clear')">-->
+                                <!--<i class="fa fa-trash fa-fw" aria-hidden="true"></i>&nbsp; Clear queue-->
+                                <!--</a>-->
+                                <!--</div>-->
+                                <!--</div>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card music-large">
                 <div class="card-header">
                     Muziek
                 </div>
                 <img class="card-img-top img-fluid sjtek-music-cover" src="img/empty.png"
-                     alt="Album cover">
+                     alt="Album cover" onclick="onMusicButtonClick('albumart')">
                 <div class="card-block">
                     <h4 class="card-title sjtek-music-artist">Taylor Swift</h4>
                     <h5 class="card-text sjtek-music-title">Shake it off</h5>
-                    <footer class="sjtek-music-status">Muziek gestopt</footer>
+                    <div class="row music-controls">
+                        <div class="col">
+                            <button type="button" class="btn btn-outline-primary btn-block"
+                                    onclick="onMusicButtonClick('previous')">
+                                <i class="fa fa-step-backward" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                        <div class="col">
+                            <button type="button" class="btn btn-outline-success btn-block"
+                                    onclick="onMusicButtonClick('toggle')">
+                                <i class="fa fa-play icon-play" aria-hidden="true"></i>
+                                <i class="fa fa-pause icon-pause" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                        <div class="col">
+                            <button type="button" class="btn btn-outline-primary btn-block"
+                                    onclick="onMusicButtonClick('next')">
+                                <i class="fa fa-step-forward" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                        <div class="col-sm">
+                            <div class="btn-group dropup">
+                                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">
+
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#" onclick="onMusicButtonClick('start')">
+                                        <i class="fa fa-play fa-fw" aria-hidden="true"></i>&nbsp; Start music
+                                    </a>
+                                    <a class="dropdown-item" href="#" onclick="onMusicButtonClick('shuffle')">
+                                        <i class="fa fa-random fa-fw" aria-hidden="true"></i>&nbsp; Shuffle
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#" onclick="onMusicButtonClick('clear')">
+                                        <i class="fa fa-trash fa-fw" aria-hidden="true"></i>&nbsp; Clear queue
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="card">
@@ -79,11 +171,11 @@
                 </div>
                 <div class="card-block">
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col">
                             <div>Binnen</div>
                             <div class="sjtek-temp-in"> °C</div>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col">
                             <div>Buiten</div>
                             <div class="sjtek-temp-out"> °C</div>
                         </div>
@@ -97,8 +189,8 @@
     </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
-        integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
         crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
         integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
