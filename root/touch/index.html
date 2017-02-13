@@ -10,6 +10,13 @@
           integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
+    <link href="icon/icon-57.png" rel="apple-touch-icon"/>
+    <link href="icon/icon-76.png" rel="apple-touch-icon" sizes="76x76"/>
+    <link href="icon/icon-120.png" rel="apple-touch-icon" sizes="120x120"/>
+    <link href="icon/icon-152.png" rel="apple-touch-icon" sizes="152x152"/>
+    <link href="icon/icon-180.png" rel="apple-touch-icon" sizes="180x180"/>
+    <link href="icon/icon-hires.png" rel="icon" sizes="192x192"/>
+    <link href="icon/icon-normal.png" rel="icon" sizes="128x128"/>
 </head>
 <body>
 <nav id="sjtekbar" class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
@@ -42,6 +49,13 @@
 <iframe id="web" src="about:blank"></iframe>
 
 <div id="main-container" class="container">
+    <div class="row sjtek-alert-error" style="display: none;">
+        <div class="col">
+            <div class="alert alert-danger" role="alert">
+                <strong>rekt</strong> De verbinding met SjtekControl is verbroken.
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-sm-4">
             <div class="card">
@@ -149,14 +163,14 @@
 
                                 </button>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#" onclick="onMusicButtonClick('start')">
+                                    <a class="dropdown-item" onclick="onMusicButtonClick('start')">
                                         <i class="fa fa-play fa-fw" aria-hidden="true"></i>&nbsp; Start music
                                     </a>
-                                    <a class="dropdown-item" href="#" onclick="onMusicButtonClick('shuffle')">
+                                    <a class="dropdown-item" onclick="onMusicButtonClick('shuffle')">
                                         <i class="fa fa-random fa-fw" aria-hidden="true"></i>&nbsp; Shuffle
                                     </a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#" onclick="onMusicButtonClick('clear')">
+                                    <a class="dropdown-item" onclick="onMusicButtonClick('clear')">
                                         <i class="fa fa-trash fa-fw" aria-hidden="true"></i>&nbsp; Clear queue
                                     </a>
                                 </div>

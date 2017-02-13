@@ -1,4 +1,5 @@
 var intervalPing = 30000;
+var useIframe = false;
 
 $(document).ready(function () {
 
@@ -9,6 +10,8 @@ $(document).ready(function () {
         $('.music-large').hide();
         $('.music-small').show();
     }
+
+    useIframe = ~window.location.search.indexOf('iframe');
 
     enableHome();
     refreshData();
@@ -44,10 +47,14 @@ function enableHome() {
 }
 
 function enableWeb(url) {
-    $('#web').attr('src', url);
-    $('#web').show();
-    $('#main-container').hide();
-    $('#sjtekbar').css('margin-bottom', '0');
+    if (useIframe) {
+        $('#web').attr('src', url);
+        $('#web').show();
+        $('#main-container').hide();
+        $('#sjtekbar').css('margin-bottom', '0');
+    } else {
+        window.location = url;
+    }
 }
 
 function toggleLight(id) {
