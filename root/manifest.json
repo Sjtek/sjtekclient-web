@@ -1,0 +1,14 @@
+{
+  "short_name": "Sjtek",
+  "name": "Sjtek Dashboard",
+  "background_color": "#183E6A",
+  "display": "standalone",
+  "theme_color": "#292b2c",
+  "icons": [
+    {
+      "src": "icon/icon-hires.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ]
+}
