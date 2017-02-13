@@ -33,7 +33,7 @@ function onMenuClick(id) {
             enableHome();
             break;
         case 1:
-            enableWeb("http://music.sjtek.nl/musicbox_webclient");
+            enableWeb("https://music.sjtek.nl/musicbox_webclient");
             break;
         case 2:
             enableWeb("https://sjtek.nl/sonarr");
