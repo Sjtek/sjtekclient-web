@@ -3,11 +3,26 @@ html, body {
     height: 100%;
 }
 
-#web {
+#web-top {
+    height: calc(100% - 56px);
+}
+
+#web-tab {
+    height: 800px;
+}
+
+.web {
     border: 0;
     overflow: hidden;
     width: 100%;
-    height: calc(100% - 56px);
+}
+
+.big-row {
+    height: 100%;
+}
+
+.container {
+    height: calc(100% - 100px);
 }
 
 .card {
