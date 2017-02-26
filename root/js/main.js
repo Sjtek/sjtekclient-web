@@ -17,7 +17,7 @@ $(document).ready(function () {
         $('#tabs').hide();
     }
 
-    useIframe = ~window.location.search.indexOf('iframe');
+    useIframe = !(~window.location.search.indexOf('iframe'));
 
     if (useIframe) {
         $('body').css('overflow', 'hidden');
