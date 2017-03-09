@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Uploader</title>
+</head>
+<body>
+
+<script>
+
+    //Facebook initalisatie shizzle
+    window.fbAsyncInit = function() {
+        FB.init({
+            //Vervangen met eigen App ID
+            appId: '1657429781228974',
+            cookie: true,
+            xfbml: true,
+            version: 'v2.8'
+        });
+
+        //Geen idee wat dit doet
+        FB.AppEvents.logPageView();
+
+        //Checken gebruiker ingelogd is, vervolgens om de rechten om te posten vragen
+        // In 'response' zit de reactie van Facebook
+        FB.getLoginStatus(function(response) {
+
+            // Als de response 'connected' is, is de gebruiker dus ingelogd
+            if (response.status === 'connected') {
+
+                // Vraag vervolgens om de juiste toesteming om te posten
+                FB.login(function(){}, {scope: 'publish_actions'});
+
+                // In de 'response' zit de accestoken die je toegang geeft om shit te posten voor de user
+                var accessToken = response.authResponse.accessToken;
+
+                // Posten van een foto
+                FB.api('/photos', 'post', {
+                    //Caption die bij de foto komt
+                    message: 'Test, please ignore',
+                    // accestoken van de user om te posten
+                    access_token: accessToken,
+                    // url naar je prachtige foto
+                    url: 'http://i.imgur.com/pkNZIrw.jpg'
+
+                    // response op het posten.
+                    }, function (response) {
+                        // Als er geen reactie van facebook komt, of er een error is, poept ie de error uit
+                        if (!response || response.error) {
+                            alert('Error occured:' + response);
+                        } else {
+                            // Anders geef id van post
+                            alert('Post ID: ' + response.id);
+                        }
+                    });
+            }
+            else {
+                // Als de user nog niet ingelogd was, log hem gelijk in met de goede permissies
+                FB.login(function(){}, {scope: 'publish_actions'});
+            }
+        });
+
+    };
+
+    //Meer facebook initalisatie shitjes
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.8&appId=1657429781228974";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+
+</script>
+
+<div id="fb-root"></div>
+
+<div class="fb-login-button"></div>
+</body>
+</html>
