@@ -16,6 +16,4 @@ The website for Sjtek. Found at https://sjtek.nl
 
 ![Dashboard](./images/root.jpg)
 
-![Screen](./images/screen.jpg)
-
 ![Screen 2](./images/screen2.jpg)
