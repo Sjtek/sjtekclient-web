@@ -20,6 +20,9 @@ function onMenuClick(id) {
         case 3:
             enableWeb("https://sjtek.nl/transmission");
             break;
+        case 4:
+            enableWeb("https://sjtek.nl/radarr");
+            break;
     }
 }
 
