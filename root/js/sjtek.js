@@ -3,7 +3,7 @@ var webSocketUri = "wss://sjtek.nl/api/ws";
 var refreshing = false;
 var albumArt = '';
 var weatherIcon = '';
-var musicState = 'STATUS_ERROR';
+var musicState = 'ERROR';
 
 function refreshData() {
     $.get('https://sjtek.nl/api/info', function (data) {
@@ -54,13 +54,13 @@ function onError(event) {
 
 function updatePage(data) {
     var state = data.music.state;
-    var newAlbum = data.music.song.albumArt;
+    var newAlbum = data.music.albumArt;
     musicState = state;
-    if (state == 'STATUS_PAUSED' || state == 'STATUS_PLAYING') {
+    if (state == 'PAUSED' || state == 'PLAYING') {
         $('.sjtek-music-title').css('display', 'block')
-            .text(data.music.song.title);
+            .text(data.music.name);
         $('.sjtek-music-artist').css('display', 'block')
-            .text(data.music.song.artist);
+            .text(data.music.artist);
         $('.sjtek-music-status').css('display', 'none');
 
         if (!(albumArt === newAlbum)) {
@@ -77,7 +77,7 @@ function updatePage(data) {
         $('.sjtek-music-status').css('display', 'block');
     }
 
-    if (state == 'STATUS_PLAYING') {
+    if (state == 'PLAYING') {
         $('.icon-play').hide();
         $('.icon-pause').show();
     } else {
@@ -85,21 +85,19 @@ function updatePage(data) {
         $('.icon-play').show();
     }
 
-    $('.sjtek-temp-in').text(data.temperature.inside + ' °C');
-    $('.sjtek-temp-out').text(data.temperature.outside + ' °C');
+    $('.sjtek-temp-in').text(data.temperature.insideTemperature + ' °C');
+    $('.sjtek-temp-out').text(data.temperature.outsideTemperature + ' °C');
 
     $('.sjtek-alert-nightmode').css('display', (data.nightmode.enabled ? 'block' : 'none'));
 
-    // $('.sjtek-light-1').css('color', (data.lights["1"] ? '#000' : '#aaa'));
-    // $('.sjtek-light-2').css('color', (data.lights["2"] ? '#000' : '#aaa'));
 }
 
 function onMusicButtonClick(action) {
     if (action === 'albumart') {
-        if (musicState == 'STATUS_PAUSED' || musicState == 'STATUS_PLAYING') {
+        if (musicState == 'PAUSED' || musicState == 'PLAYING') {
             action = 'toggle';
         } else {
-            action = 'start';
+            action = 'start?shuffle&clear&reset';
         }
     }
 
@@ -108,6 +106,11 @@ function onMusicButtonClick(action) {
 }
 
 function onLightButtonClick(id) {
-    $.get('https://sjtek.nl/api/lights/toggle' + id, function (data) {
+    $.get('https://sjtek.nl/api/lights/' + id + '/toggle', function (data) {
+    })
+}
+
+function onRoomButtonClick(name) {
+    $.get('https://sjtek.nl/api/room/' + name + '/toggle', function (data) {
     })
 }
