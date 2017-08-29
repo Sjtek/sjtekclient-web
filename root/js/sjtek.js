@@ -7,7 +7,9 @@ var musicState = 'ERROR';
 
 function refreshData() {
     $.get('https://sjtek.nl/api/info', function (data) {
-        updatePage(JSON.parse(data));
+        console.log("Update");
+        console.log(data);
+        updatePage(data);
     })
 }
 
