@@ -178,3 +178,5 @@ sftp-config.json
 Network Trash Folder
 Temporary Items
 .apdisk
+
+dist/
