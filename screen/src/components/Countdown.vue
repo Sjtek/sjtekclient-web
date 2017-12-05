@@ -25,5 +25,6 @@
         background-color: #eaeaea;
         font-size: 3em;
         padding: 1em;
+        z-index: 100;
     }
 </style>

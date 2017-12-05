@@ -2,7 +2,7 @@
     <div id="app">
         <year-start v-if="time.yearStart"></year-start>
         <countdown></countdown>
-        <router-view></router-view>
+        <router-view class="container"></router-view>
     </div>
 </template>
 
@@ -32,8 +32,21 @@
 </script>
 
 <style>
+    @import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
     html, body {
         min-height: 100%;
         height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        font-family: 'Ubuntu', sans-serif;
+    }
+
+    .container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        margin: 0;
     }
 </style>
