@@ -14,6 +14,6 @@
         border: 0;
         width: 100%;
         overflow: hidden;
-        height: calc(100vh - 65px);
+        height: calc(100vh - 63px);
     }
 </style>

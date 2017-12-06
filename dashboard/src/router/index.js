@@ -15,7 +15,7 @@ export default new Router({
         {
             path: '/music',
             component: ExtPage,
-            props: {url: 'https://music.sjtek.nl/'}
+            props: {url: 'https://music.sjtek.nl/iris'}
         },
         {
             path: '/radarr',
