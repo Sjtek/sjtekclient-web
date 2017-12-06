@@ -1,5 +1,6 @@
 <template>
     <div>
+        <countdown></countdown>
         <div :style="{ 'background-image' : 'url(' + dataStore.music.artistArt + ')' }" class="music-background">
 
         </div>
@@ -15,8 +16,10 @@
 
 <script>
     import * as api from "../api";
+    import Countdown from "../components/Countdown.vue";
 
     export default {
+        components: {Countdown},
         name: "music-page",
         data() {
             return {
@@ -67,9 +70,10 @@
 
     .artist {
         font-size: 2em;
+        font-weight: bold;
     }
 
     .title {
-        font-size: 1.5em;
+        font-size: 2em;
     }
 </style>

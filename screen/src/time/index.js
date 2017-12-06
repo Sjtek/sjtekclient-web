@@ -1,11 +1,11 @@
-const countDownDate = new Date("2017-12-05T20:00:00Z");
+const countDownDate = new Date("2017-12-06T18:49:00Z");
 const _second = 1000;
 const _minute = _second * 60;
 const _hour = _minute * 60;
 const _day = _hour * 24;
 
 export const data = {
-    expired: false,
+    expired: true,
     clockText: "00:00:00",
     secondsCountdown: false,
     yearStart: false,

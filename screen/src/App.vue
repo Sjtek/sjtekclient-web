@@ -1,21 +1,21 @@
 <template>
     <div id="app">
+        <seconds-countdown v-if="time.secondsCountdown && !time.expired"></seconds-countdown>
         <year-start v-if="time.yearStart"></year-start>
-        <countdown></countdown>
         <router-view class="container"></router-view>
     </div>
 </template>
 
 <script>
     import YearStart from "./components/YearStart.vue";
-    import Countdown from "./components/Countdown.vue";
     import * as api from "./api";
     import * as time from "./time";
+    import SecondsCountdown from "./components/SecondsCountdown.vue";
 
     export default {
         components: {
+            SecondsCountdown,
             YearStart,
-            Countdown
         },
         name: "app",
         data() {
