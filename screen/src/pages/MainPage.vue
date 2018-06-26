@@ -1,8 +1,7 @@
 <template>
     <div class="main">
         <div class="main-text">
-            <h1>Sjtek fissa</h1>
-            <p>2018</p>
+            <h1>Sjtek op nieuw 2018</h1>
             <p v-if="!time.expired">{{time.clockText}}</p>
             <p v-if="time.expired">Gelukkig nieuwjaar!</p>
         </div>

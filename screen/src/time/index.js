@@ -1,4 +1,4 @@
-const countDownDate = new Date("2017-12-06T18:49:00Z");
+const countDownDate = new Date("2017-12-31T23:00:00Z");
 const _second = 1000;
 const _minute = _second * 60;
 const _hour = _minute * 60;

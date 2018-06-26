@@ -24,9 +24,24 @@
             }
         },
         mounted() {
-            api.start();
+            api.start(this.wsCallback);
             time.start();
-
+        },
+        methods: {
+            wsCallback(data) {
+                if (typeof data === 'undefined') {
+                    return;
+                }
+                if (data.music.state === "PLAYING") {
+                    this.$router.replace("/music");
+                } else if (data.screen.video === true) {
+                    this.$router.replace("/video")
+                } else if (data.music.state === "PAUSED") {
+                    this.$router.replace("/music");
+                } else {
+                    this.$router.replace("/")
+                }
+            }
         }
     }
 </script>

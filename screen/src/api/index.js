@@ -2,10 +2,11 @@ import ReconnectingWebSocket from './reconnecting-websocket.js';
 
 export const data = {
     music: {},
-    temperature: {}
+    temperature: {},
+    screen: {video: false}
 };
 
-export function start() {
+export function start(callback) {
     refreshData();
     let webSocket = new ReconnectingWebSocket("wss://sjtek.nl/api/ws");
     webSocket.onopen = function (evt) {
@@ -16,7 +17,9 @@ export function start() {
     };
     webSocket.onmessage = function (evt) {
         console.log("message");
-        updateData(JSON.parse(evt.data));
+        const parsed = JSON.parse(evt.data);
+        updateData(parsed);
+        callback(parsed);
     };
     webSocket.onerror = function (evt) {
         console.log("websocket error");
@@ -32,4 +35,5 @@ function refreshData() {
 function updateData(json) {
     data.music = json.music;
     data.temperature = json.temperature;
+    data.screen = json.screen
 }
